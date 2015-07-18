@@ -10,16 +10,6 @@
     tools:context="com.example.myfitnessjourney.LoginActivity" >
 
     <TextView
-        android:id="@+id/myfitnessjourney_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="@string/myfitnessjourney_title"
-        android:textColor="@color/text_white"
-        android:textSize="30sp" />
-
-    <TextView
         android:id="@+id/myfitnessjourney_motto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,56 +19,46 @@
         android:textColor="@color/text_white"
         android:textSize="15sp" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/credentials_layout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="0dp"
         android:background="@color/green_1" >
 
         <Button
             android:id="@+id/facebook_login"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@id/google_login"
             android:background="@drawable/buttons"
             android:padding="3dp"
+            android:layout_margin="5dp"
             android:text="Login with Facebook"
-            android:textColor="@color/text_white" />
+            android:textColor="@color/text_white"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/google_login"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/facebook_login"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_margin="5dp"
             android:background="@drawable/buttons"
             android:padding="3dp"
             android:text="Login with Google"
-            android:textColor="@color/text_white" />
+            android:textColor="@color/text_white"
+            android:textSize="15sp" />
 
-    </RelativeLayout>
-    
-    <TextView
-            android:id="@+id/signup_text_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/relativeLayout1"
-            android:layout_centerHorizontal="true"
-            android:text="or Signup"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/text_white"/>
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/credentials_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/relativeLayout1"
         android:layout_below="@+id/myfitnessjourney_motto"
-        android:layout_marginTop="68dp" >
+        android:layout_marginTop="20dp" >
 
         <EditText
             android:id="@+id/email_text"
@@ -86,7 +66,8 @@
             android:layout_height="wrap_content"
             android:background="@color/text_white"
             android:hint="@string/login_email_hint"
-            android:padding="5dp" >
+            android:padding="10dp"
+            android:textSize="15sp" >
 
             <requestFocus />
         </EditText>
@@ -99,7 +80,8 @@
             android:layout_marginTop="20dp"
             android:background="@color/text_white"
             android:hint="@string/login_password_hint"
-            android:padding="5dp" />
+            android:padding="10dp" 
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/login_button"
@@ -107,10 +89,35 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/password_text"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/buttons"
             android:text="@string/log_in"
+            android:textColor="@color/text_white"
+            android:textSize="15sp"
+          	 />
+
+        <TextView
+            android:id="@+id/signup_text_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/login_button"
+            android:layout_alignBottom="@+id/login_button"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="76dp"
+            android:text="or Signup"
             android:textColor="@color/text_white" />
+
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/myfitnessjourney_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="@string/myfitnessjourney_title"
+        android:textColor="@color/text_white"
+        android:textSize="30sp" />
 
 </RelativeLayout>
