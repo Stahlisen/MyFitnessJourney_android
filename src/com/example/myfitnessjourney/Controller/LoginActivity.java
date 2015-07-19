@@ -3,8 +3,15 @@ package com.example.myfitnessjourney.Controller;
 
 
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputFilter.LengthFilter;
+import android.util.Log;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,6 +30,7 @@ public class LoginActivity extends ActionBarActivity {
 	Button mLogin, mFacebookLogin, mGoogleLogin;
 	TextView mSignUp;
 	public static String LOGIN_ID = "login_id";
+	String LOGIN_FAILURE_MESSAGE = "Invalid username or password, try again.";
 	String loginid = "frest460";
 	
 	
@@ -67,13 +75,51 @@ public class LoginActivity extends ActionBarActivity {
 	//Create listeners for widgets
 	public void createListeners() {
 		
-		mFacebookLogin.setOnClickListener( new View.OnClickListener() {
+		mLogin.setOnClickListener( new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent (getBaseContext(), HomeActivity.class);
-				i.putExtra(LOGIN_ID, loginid);
-				startActivity(i);				
+				
+				ParseUser.logInInBackground(mEditEmail.getText().toString(), mEditPassword.getText().toString(), new LogInCallback() {
+
+					@Override
+					public void done(ParseUser user, ParseException e) {
+						// TODO Auto-generated method stub
+						if (user != null) {
+							Intent i = new Intent (getBaseContext(), HomeActivity.class);
+							i.putExtra(LOGIN_ID, loginid);
+							startActivity(i);
+							
+						} else {
+							Log.d("Login", "failed");
+							
+							AlertDialog.Builder adb = new AlertDialog.Builder(
+								LoginActivity.this);
+							
+							adb.setTitle("Something went wrong");
+							adb
+							.setMessage(LOGIN_FAILURE_MESSAGE)
+							.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+								
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									// TODO Auto-generated method stub
+									dialog.cancel();
+								}
+							});
+							
+							AlertDialog alertDialog = adb.create();
+							 
+							// show it
+							alertDialog.show();
+						}
+
+					}
+
+				});
+				
+					
+						
 			}
 		});
 		
