@@ -7,6 +7,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import Services.ParseDataHandler;
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputFilter.LengthFilter;
 import android.util.Log;
@@ -87,6 +88,7 @@ public class LoginActivity extends ActionBarActivity {
 						// TODO Auto-generated method stub
 						if (user != null) {
 							Intent i = new Intent (getBaseContext(), HomeActivity.class);
+							loginid = user.getUsername();
 							i.putExtra(LOGIN_ID, loginid);
 							startActivity(i);
 							
