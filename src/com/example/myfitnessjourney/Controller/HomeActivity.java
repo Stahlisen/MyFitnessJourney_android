@@ -12,8 +12,8 @@ public class HomeActivity extends SingleFragmentActivity {
 	@Override
 	protected Fragment createFragment() {
 		// TODO Auto-generated method stub
-		String r = getIntent().getStringExtra(LoginActivity.LOGIN_ID);
+		String loginid = getIntent().getStringExtra(LoginActivity.LOGIN_ID);
 		
-		return new HomeFragment();
+		return HomeInfoFragment.newInstance(loginid);
 	}
 }

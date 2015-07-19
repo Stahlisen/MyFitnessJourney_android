@@ -16,5 +16,11 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="home_info_text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
 
 </resources>
