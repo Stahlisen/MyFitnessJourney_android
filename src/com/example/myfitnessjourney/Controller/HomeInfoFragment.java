@@ -44,7 +44,7 @@ public class HomeInfoFragment extends Fragment {
 
 		loginid = (String) getArguments().getString("login_id");
 
-		// Do something
+		
 	}
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent,
@@ -58,9 +58,7 @@ public class HomeInfoFragment extends Fragment {
 		mGoalWeight = (TextView) v.findViewById(R.id.goal_weight_v);
 		mGoalDate = (TextView) v.findViewById(R.id.goal_date_v);
 		mTimeRemaining = (TextView) v.findViewById(R.id.time_remaining_v);
-		fetchHomeUserInfo();
-
-		// mCurrentWeight.setText(userInfo.getCurrentweight());
+		setHomeUserInfo();
 
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Welcome ");
@@ -73,7 +71,7 @@ public class HomeInfoFragment extends Fragment {
 
 	}
 
-	public void fetchHomeUserInfo() {
+	public void setHomeUserInfo() {
 
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Goal");
 		query.whereEqualTo("user", ParseUser.getCurrentUser());
