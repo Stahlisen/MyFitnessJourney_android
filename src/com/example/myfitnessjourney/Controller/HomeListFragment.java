@@ -40,7 +40,7 @@ public class HomeListFragment extends ListFragment {
 			
 			
 			if (convertView == null) {
-			convertView = getActivity().getLayoutInflater().inflate(R.layout.item_list_home, null);
+			convertView = getActivity().getLayoutInflater().inflate(R.layout.item_list_home,p, false);
 
 			}
 			

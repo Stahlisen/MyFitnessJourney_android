@@ -24,13 +24,13 @@
     </style>
     
     <style name="home_info_value">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/text_white</item>
         <item name="android:padding">8sp</item>
         </style>
         
     <style name="home_list_item">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/text_white</item>
     </style>
 
